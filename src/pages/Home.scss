@@ -1,0 +1,125 @@
+.container {
+    position: relative;
+
+    .imageContainer {
+        position: relative;
+
+        .mainLogo {
+            position: absolute;
+            left: 43%;
+            top: -165px;
+        }
+    }
+
+    .tableContainer {
+        background-color: #1c1d1e;
+        color: #6b717d;
+        padding: 2rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 15rem;
+        border-radius: 20px;
+        height: 700px;
+        width: 88%;
+        margin: 0 auto;
+
+        .tableContainerHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .results {
+                display: flex;
+                align-items: start;
+                justify-content: start;
+            }
+
+            .searchBar {
+                display: flex;
+
+                .searchBarIcon {
+                    background-color: #282c31;
+                    padding: 0px 10px 0 10px;
+                    border-top-left-radius: 12px;
+                    border-bottom-left-radius: 12px;
+                }
+
+                #searchBarInput {
+                    width: 270px;
+                    height: 40px;
+                    border-radius: 12px;
+                    border-top-left-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                    border: none;
+                    background-color: #282c31;
+                }
+            }
+
+        }
+
+        .tableContainerCountries {
+            display: flex;
+            justify-content: end;
+            max-height: 670px;
+            overflow: auto;
+
+            table {
+                thead {
+                    th {
+                        background: #afa;
+                        position: sticky;
+                        top: 0;
+                        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+                    }
+                }
+
+                tr {
+                    .bordered {
+                        border-bottom: 1px solid #000;
+                        height: 1rem;
+                    }
+                }
+            }
+
+            .tableHeaders {
+                th {
+                    text-align: start;
+                    padding: 30px 20px;
+                }
+
+                border-bottom: solid 0.1rem white;
+            }
+
+            .tableBody {
+                td {
+                    text-align: start;
+                    padding: 10px 20px;
+                    color: white;
+                }
+
+                .flagImage {
+                    width: 55px;
+                    height: 40px;
+                    border-radius: 10px;
+                }
+
+                .nameWidth {
+                    width: 300px;
+                }
+            }
+        }
+
+        .tableBottomContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .filtersContainer {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+    }
+}
