@@ -1,0 +1,95 @@
+.imageContainerCountry {
+    position: relative;
+
+    .mainLogoCountry {
+        position: absolute;
+        left: 34%;
+        top: 100px;
+    }
+
+    .backgroundHeaderImageCountry {
+        height: 300px;
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
+
+.tableContainer {
+    position: relative;
+
+    .flagImageCountry {
+        height: 200px;
+        max-width: 100%;
+        object-fit: cover;
+        border-radius: 1rem;
+        position: absolute;
+        top: -8rem;
+        left: 21.5%;
+        z-index: 10;
+    }
+
+    .tableCountry {
+        background-color: #1c1d1e;
+        color: #6b717d;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -4rem;
+        padding-top: 10rem;
+
+        .nameContainerCountry {
+            div {
+                color: white;
+
+                &:first-child {
+                    font-size: 2rem;
+                }
+            }
+
+            margin-bottom: 2rem;
+        }
+
+        .populationAreaContainerCountry {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+
+            div {
+                background-color: #282c31;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+                color: white;
+                margin-bottom: 3rem;
+
+                p {
+                    border-right: solid 1px white;
+                    padding-right: 1rem;
+                    margin: 0;
+                }
+            }
+        }
+
+        .listInfoCountry {
+            div {
+                border-top: solid 1px #282c31;
+                padding: 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p {
+                    color: white;
+                }
+            }
+
+            .lastListInfoCountry {
+                border-bottom: solid 1px #282c31;
+
+            }
+        }
+    }
+}

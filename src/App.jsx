@@ -1,14 +1,8 @@
-import { useState } from 'react'
 import './App.css'
-import Home from './pages/Home'
+import AppRouter from './router/AppRouter';
 
 function App() {
-
-  return (
-    <>
-      <Home />
-    </>
-  )
+  return <AppRouter></AppRouter>;
 }
 
 export default App
