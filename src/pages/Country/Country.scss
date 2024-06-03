@@ -3,8 +3,9 @@
 
     .mainLogoCountry {
         position: absolute;
-        left: 34%;
-        top: 100px;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
     }
 
     .backgroundHeaderImageCountry {
@@ -23,9 +24,14 @@
         object-fit: cover;
         border-radius: 1rem;
         position: absolute;
-        top: -8rem;
-        left: 21.5%;
+        top: -1rem;
         z-index: 10;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @media (max-width: 440px) {
+            height: 150px;
+        }
     }
 
     .tableCountry {
@@ -36,6 +42,16 @@
         right: 0;
         top: -4rem;
         padding-top: 10rem;
+        width: 100%;
+        border-radius: unset;
+        margin: unset;
+
+        @media (min-width: 840px) {
+            border-radius: 50px;
+            width: 60%;
+            margin: 0 auto;
+        }
+
 
         .nameContainerCountry {
             div {
@@ -55,6 +71,11 @@
             align-items: center;
             justify-content: center;
             gap: 2rem;
+
+            @media (max-width: 510px) {
+                gap: unset;
+                flex-direction: column;
+            }
 
             div {
                 background-color: #282c31;
@@ -81,8 +102,10 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
                 p {
                     color: white;
+                    text-align: end;
                 }
             }
 
