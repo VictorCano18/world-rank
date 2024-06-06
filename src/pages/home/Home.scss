@@ -30,6 +30,7 @@
         height: 700px;
         width: 88%;
         margin: 0 auto;
+        border: solid 1px #282B30;
 
         @media (max-width: 840px) {
             width: unset;
@@ -107,6 +108,26 @@
         .tableCountries {
             position: relative;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.875rem;
+
+            .errorMessage {
+                margin-bottom: 1rem;
+            }
+
+            .btnReloadPage {
+                margin-top: 1rem;
+                background-color: rgb(90 134 219);
+                padding: 0.5rem;
+                color: white;
+                border-radius: 30px;
+                &:hover {
+                    background-color: rgb(114, 152, 227);
+                }
+            }
 
             .tableContainerCountries {
                 th {
@@ -171,7 +192,7 @@
                     flex-direction: row;
                     text-align: start;
                     gap: 4rem;
-                    color: white;
+                    color: #D2D5DA;
 
                     td {
                         &:first-child {
@@ -183,7 +204,7 @@
 
                     div {
                         padding: 10px 20px;
-                        color: white;
+                        color: #D2D5DA;
                     }
 
                     .flagImage {
@@ -295,17 +316,17 @@
                         margin-bottom: 0.5rem;
                     }
 
-                    #groupButtonFilter {
+                    .groupButtonButtonsContainer {
+
                         display: flex;
                         flex-wrap: wrap;
                         gap: 0.4rem;
 
-                    }
-
-                    .groupButtonButtonsContainer {
                         button {
                             background-color: #1c1d1e;
                             font-size: 0.875rem;
+                            outline: none;
+                            border: none;
 
                             @media (max-width: 959px) {
                                 font-size: 0.75rem;
@@ -330,7 +351,7 @@
 
                         label {
                             font-size: 0.875rem;
-                            color: white;
+                            color: #D2D5DA;
 
                             @media (max-width: 959px) {
                                 font-size: 0.75rem;
@@ -368,11 +389,20 @@
                             input[type="checkbox"] {
                                 width: 31px;
                                 height: 24px;
-                                background-color: white;
+                                background-color: #D2D5DA;
                                 margin: 0;
+                                position: relative;
+                                content: "" !important;
 
                                 &:checked {
                                     accent-color: #4E80EE;
+
+                                    // &::after {
+                                    //     content: url(../../assets/basic-tick.png);
+                                    //     position: absolute;
+                                    //     left: 24%;
+                                    //     top: 17%;
+                                    // }
                                 }
                             }
 

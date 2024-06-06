@@ -17,6 +17,7 @@
 
 .tableContainer {
     position: relative;
+    margin-bottom: 1rem;
 
     .flagImageCountry {
         height: 220px;
@@ -38,34 +39,45 @@
     }
 
     .tableCountry {
-        background-color: #1c1d1e;
+        background-color: #1B1D1F;
         color: #6b717d;
         position: absolute;
         left: 0;
         right: 0;
         top: -4rem;
-        padding-top: 10rem;
+        padding-top: 8.5rem;
         width: 100%;
         border-radius: unset;
         margin: unset;
+        border: solid 1px #282B30;
 
-        @media (min-width: 840px) {
-            border-radius: 50px;
+        @media (min-width: 900px) {
+            border-radius: 15px;
             width: 60%;
             margin: 0 auto;
         }
 
+        @media (min-width: 441px) {
+            padding-top: 10rem;
+        }
+
 
         .nameContainerCountry {
+
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+
+            @media (max-width: 441px) {
+                margin-top: 0;
+            }
+
             div {
-                color: white;
+                color: #D2D5DA;
 
                 &:first-child {
                     font-size: 2rem;
                 }
             }
-
-            margin-bottom: 2rem;
         }
 
         .populationAreaContainerCountry {
@@ -86,14 +98,15 @@
                 display: flex;
                 align-items: center;
                 gap: 1rem;
-                padding: 1rem;
-                color: white;
+                padding: 0.3rem 1rem;
+                color: #D2D5DA;
                 margin-bottom: 3rem;
 
                 p {
-                    border-right: solid 1px white;
-                    padding-right: 1rem;
+                    border-right: solid 1px #1B1D1F;
                     margin: 0;
+                    padding: 0.6rem 0rem;
+                    padding-right: 1rem;
                 }
             }
         }
@@ -101,15 +114,20 @@
         .listInfoCountry {
             div {
                 border-top: solid 1px #282c31;
-                padding: 1.5rem;
+                padding: 0.7rem 1.5rem;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
                 p {
-                    color: white;
+                    color: #D2D5DA;
                     text-align: end;
                 }
+            }
+
+            .neighbouringCountriesTitle {
+                margin-top: 1rem;
+                border-top: none;
             }
 
             .lastListInfoCountry {
@@ -142,7 +160,7 @@
 
                     div {
                         padding: 0.7rem;
-                        color: white;
+                        color: #D2D5DA;
                     }
 
                     @media (max-width: 630px) {
@@ -152,10 +170,11 @@
                 }
 
                 .noNeighborsName {
-                    color: white;
+                    color: #D2D5DA;
                     justify-content: start;
                     text-align: start;
                     padding-top: 0;
+                    padding-left: 0.5rem;
                 }
 
                 .neighbourFlagImageCountry {
@@ -163,7 +182,7 @@
                     max-width: 100px;
                     object-fit: cover;
                     display: block;
-                    border-radius: 1rem;
+                    border-radius: 0.5rem;
                 }
             }
         }
