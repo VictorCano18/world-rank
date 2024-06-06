@@ -1,7 +1,6 @@
 import './Home.scss';
 import coverHeaderImage from '../../assets/hero-image-wr.jpg'
 import mainIcon from '../../assets/Logo.svg'
-import searchIcon from '../../assets/Search.svg'
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader'
@@ -22,7 +21,7 @@ const Home = () => {
         try {
             setData([])
             setTotalCountries(0)
-            const url = `https://restcountries.com/v3.1/all?fields=name,population,region,flag,flags,independent,unMember,area,capital,languages,subregion,currencies,continents,borders`
+            const url = `https://restcountries.com/v3.1/all?fields=name,population,region,flag,flags,independent,unMember,area,capital,languages,subregion,currencies,continents,borders,cioc`
             const response = await axios.get(url);
             response.data.sort((a, b) => b[selectOption] - a[selectOption])
             setData(response.data);
@@ -67,7 +66,7 @@ const Home = () => {
 
         if (searchValue.length)
             sortedData = sortedData.filter(country => country.name.common.toLowerCase().includes(searchValue.toLowerCase()) || country.region.toLowerCase().includes(searchValue.toLowerCase()))
-    
+
         return sortedData;
     }
 
@@ -107,7 +106,6 @@ const Home = () => {
                             <strong>Found {totalCountries} countries</strong>
                         </section>
                         <section className='searchBar'>
-                            <img src={searchIcon} className='searchBarIcon' />
                             <input
                                 type="search"
                                 id="searchBarInput"
@@ -149,33 +147,33 @@ const Home = () => {
                             {(!!data.length)
                                 ?
                                 <section className='tableContainerCountries'>
-                                    <div>
-                                        <div>
-                                            <div className='tableHeaders'>
-                                                <div>Flag</div>
-                                                <div className='nameWidth'>Name</div>
-                                                <div className='populationWidth'>Population</div>
-                                                <div className='areaWidth'>Area (km²)</div>
-                                                <div className='regionWidth'>Region</div>
-                                            </div>
-                                        </div>
-                                        <div>
+                                    <table>
+                                        <thead>
+                                            <tr className='tableHeaders'>
+                                                <th scope="col" >Flag</th>
+                                                <th scope="col" className='nameWidth'>Name</th>
+                                                <th scope="col" className='populationWidth'>Population</th>
+                                                <th scope="col" className='areaWidth'>Area (km²)</th>
+                                                <th scope="col" className='regionWidth'>Region</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             {data.map((country) => {
                                                 return (
-                                                    <Link to='/selected-country' state={country}>
-                                                        <div className='tableBody' key={country.flag}>
-                                                            <div><img src={country.flags.svg} alt={country.flags.alt} className='flagImage'></img></div>
-                                                            <div className='nameWidth'>{country.name.common}</div>
-                                                            <div className='populationWidth'>{country.population}</div>
-                                                            <div className='areaWidth'>{country.area}</div>
-                                                            <div className='regionWidth'>{country.region}</div>
-                                                        </div>
+                                                    <Link to='/selected-country' state={{ country, data }}>
+                                                        <tr className='tableBody' key={country.flag}>
+                                                            <td><img src={country.flags.svg} alt={country.flags.alt} className='flagImage'></img></td>
+                                                            <td className='nameWidth'>{country.name.common}</td>
+                                                            <td className='populationWidth'>{country.population}</td>
+                                                            <td className='areaWidth'>{country.area}</td>
+                                                            <td className='regionWidth'>{country.region}</td>
+                                                        </tr>
                                                     </Link>
                                                 )
                                             })
                                             }
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </section>
                                 :
                                 <ClipLoader

@@ -1,15 +1,17 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './Country.scss'
 import coverHeaderImage from '../../assets/hero-image-wr.jpg'
 import mainIcon from '../../assets/Logo.svg'
 
 const Country = () => {
     const location = useLocation();
-    const country = location.state;
+    const { country, data } = location.state;
     const languages = Object.values(country.languages)
     const currencies = Object.values(country.currencies)
     const allCurrencies = currencies.map(curr => curr.name)
-    
+    const neighbors = data.filter(current => country.borders.includes(current.cioc))
+    console.log(neighbors)
+
     return (
         <div>
             <section className='imageContainerCountry'>
@@ -33,6 +35,17 @@ const Country = () => {
                         <div>Language <p>{languages.length > 1 ? languages.join(', ') : languages[0]}</p></div>
                         <div>Currencies <p>{allCurrencies.length > 1 ? allCurrencies.join(', ') : allCurrencies[0]}</p></div>
                         <div className="lastListInfoCountry">Continents <p>{country.continents.length > 1 ? country.continents.join(', ') : country.continents[0]}</p></div>
+                        <div>Neighbouring Countries</div>
+                        <div className="neighborsContainer">
+                            {neighbors.length ? neighbors.map(country => (
+                                <Link to='/selected-country' state={{ country, data }}>
+                                    <div className="neighborsFlagName">
+                                        <div><img src={country.flags.svg} alt={country.flags.alt} className="neighbourFlagImageCountry" /></div>
+                                        <div key={country.name}>{country.name.common}</div>
+                                    </div>
+                                </Link>
+                            )) : <div className="noNeighborsName">Country without neighbours</div>}
+                        </div>
                     </div>
                 </div>
             </section>

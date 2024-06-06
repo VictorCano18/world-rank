@@ -55,13 +55,22 @@
                 align-items: start;
                 justify-content: start;
 
-                @media (max-width: 520px) {
-                    font-size: 0.9rem;
+                @media (max-width: 959px) {
+                    font-size: 0.75rem;
                 }
             }
 
             .searchBar {
                 display: flex;
+                background-color: #282b30;
+                border-radius: 12px;
+                padding: 0rem 0.2rem;
+
+                &:focus,
+                input:focus {
+                    outline: none;
+                }
+
 
                 .searchBarIcon {
                     background-color: #282c31;
@@ -73,11 +82,14 @@
                 #searchBarInput {
                     width: 270px;
                     height: 40px;
-                    border-radius: 12px;
-                    border-top-left-radius: 0px;
-                    border-bottom-left-radius: 0px;
                     border: none;
-                    background-color: #282c31;
+                    background: url(../../assets/Search.svg) no-repeat scroll 4px 8px;
+                    padding-left: 2rem;
+                    font-size: 0.875rem;
+
+                    @media (max-width: 959px) {
+                        font-size: 0.75rem;
+                    }
 
                     @media (max-width: 530px) {
                         width: 40vw;
@@ -97,23 +109,8 @@
             width: 100%;
 
             .tableContainerCountries {
-                display: flex;
-                max-height: 670px;
-                overflow: auto;
-                overflow-x: hidden;
-                max-width: 62vw;
-
-                @media (max-width: 840px) {
-                    max-width: 100%;
-                    max-height: 275px;
-                }
-
-                @media (max-width: 496px) {
-                    max-height: 240px;
-                }
-
-                @media (max-width: 391px) {
-                    max-height: 200px;
+                th {
+                    text-align: start;
                 }
 
                 .tableHeaders {
@@ -123,27 +120,48 @@
                     position: sticky;
                     top: 0;
                     background-color: #1c1d1e;
+                    gap: 4.3rem;
+                    margin-bottom: 1.5rem;
 
+                    th {
+                        font-size: 0.75rem;
+                    }
 
-                    div {
+                    tr {
                         text-align: start;
                         padding: 30px 22px;
                     }
 
                     .nameWidth {
                         width: 200px;
+
+                        @media (max-width: 840px) {
+                            width: 50px;
+                        }
                     }
 
                     .populationWidth {
                         width: 90px;
+
+                        @media (max-width: 840px) {
+                            width: 90px;
+                        }
                     }
 
                     .areaWidth {
                         width: 100px;
+
+                        @media (max-width: 840px) {
+                            width: 90px;
+                        }
                     }
 
                     .regionWidth {
                         width: 50px;
+
+                        @media (max-width: 840px) {
+                            padding-left: 10px;
+                        }
                     }
 
                 }
@@ -152,6 +170,16 @@
                     display: flex;
                     flex-direction: row;
                     text-align: start;
+                    gap: 4rem;
+                    color: white;
+
+                    td {
+                        &:first-child {
+                            width: 30px;
+                        }
+
+                        width: 8vw;
+                    }
 
                     div {
                         padding: 10px 20px;
@@ -165,21 +193,37 @@
                         object-fit: cover;
                     }
 
-                    .nameWidth {
-                        width: 200px;
-                    }
+                    // .nameWidth {
+                    //     width: 200px;
 
-                    .populationWidth {
-                        width: 100px;
-                    }
+                    //     @media (max-width: 840px) {
+                    //         width: 50px;
+                    //     }
+                    // }
 
-                    .areaWidth {
-                        width: 100px;
-                    }
+                    // .populationWidth {
+                    //     width: 100px;
 
-                    .regionWidth {
-                        width: 50px;
-                    }
+                    //     @media (max-width: 840px) {
+                    //         width: 90px;
+                    //     }
+                    // }
+
+                    // .areaWidth {
+                    //     width: 100px;
+
+                    //     @media (max-width: 840px) {
+                    //         width: 90px;
+                    //     }
+                    // }
+
+                    // .regionWidth {
+                    //     width: 50px;
+
+                    //     @media (max-width: 840px) {
+                    //         width: 90px;
+                    //     }
+                    // }
 
                 }
             }
@@ -218,7 +262,7 @@
                     margin-bottom: 2rem;
 
                     label {
-                        font-size: 0.8rem;
+                        font-size: 0.75rem;
                         margin-bottom: 0.5rem;
                     }
 
@@ -228,11 +272,13 @@
                         border-radius: 10px;
                         padding: 0px 12px;
                         background-color: #1c1d1e;
+                        border-color: #282b30;
+                        border-width: 0.2rem;
 
                         @media (max-width: 530px) {
                             width: 45vw;
                         }
-    
+
                         @media (max-width: 390px) {
                             width: 65vw;
                         }
@@ -245,15 +291,25 @@
                     margin-bottom: 2rem;
 
                     label {
-                        font-size: 0.8rem;
+                        font-size: 0.75rem;
                         margin-bottom: 0.5rem;
+                    }
+
+                    #groupButtonFilter {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.4rem;
+
                     }
 
                     .groupButtonButtonsContainer {
                         button {
-                            margin: 5px;
                             background-color: #1c1d1e;
-                            font-size: 0.8rem;
+                            font-size: 0.875rem;
+
+                            @media (max-width: 959px) {
+                                font-size: 0.75rem;
+                            }
                         }
                     }
                 }
@@ -264,7 +320,7 @@
                     margin-bottom: 2rem;
 
                     label {
-                        font-size: 0.8rem;
+                        font-size: 0.75rem;
                         margin-bottom: 0.5rem;
                     }
 
@@ -273,14 +329,35 @@
                         flex-direction: column;
 
                         label {
-                            font-size: 0.8rem;
+                            font-size: 0.875rem;
                             color: white;
+
+                            @media (max-width: 959px) {
+                                font-size: 0.75rem;
+                            }
                         }
 
                         .checkBoxFilterContainerInput {
                             display: flex;
                             flex-direction: row;
                             gap: 1rem;
+                            margin-bottom: 1rem;
+
+                            @media (max-width: 1200px) {
+                                width: 35vw;
+                            }
+
+                            @media (max-width: 959px) {
+                                width: unset;
+                            }
+
+                            @media (max-width: 841px) {
+                                width: unset;
+                            }
+
+                            @media (max-width: 360px) {
+                                width: 90vw;
+                            }
 
                             label {
                                 margin: 0;
@@ -289,8 +366,18 @@
                             }
 
                             input[type="checkbox"] {
-                                width: 27px;
+                                width: 31px;
                                 height: 24px;
+                                background-color: white;
+                                margin: 0;
+
+                                &:checked {
+                                    accent-color: #4E80EE;
+                                }
+                            }
+
+                            #independent {
+                                margin: 0;
                             }
 
                         }
