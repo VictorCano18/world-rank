@@ -104,137 +104,6 @@
 
         }
 
-        .tableCountries {
-            position: relative;
-            width: 100%;
-
-            .tableContainerCountries {
-                th {
-                    text-align: start;
-                }
-
-                .tableHeaders {
-                    display: flex;
-                    flex-direction: row;
-                    text-align: start;
-                    position: sticky;
-                    top: 0;
-                    background-color: #1c1d1e;
-                    gap: 4.3rem;
-                    margin-bottom: 1.5rem;
-
-                    th {
-                        font-size: 0.75rem;
-                    }
-
-                    tr {
-                        text-align: start;
-                        padding: 30px 22px;
-                    }
-
-                    .nameWidth {
-                        width: 200px;
-
-                        @media (max-width: 840px) {
-                            width: 50px;
-                        }
-                    }
-
-                    .populationWidth {
-                        width: 90px;
-
-                        @media (max-width: 840px) {
-                            width: 90px;
-                        }
-                    }
-
-                    .areaWidth {
-                        width: 100px;
-
-                        @media (max-width: 840px) {
-                            width: 90px;
-                        }
-                    }
-
-                    .regionWidth {
-                        width: 50px;
-
-                        @media (max-width: 840px) {
-                            padding-left: 10px;
-                        }
-                    }
-
-                }
-
-                .tableBody {
-                    display: flex;
-                    flex-direction: row;
-                    text-align: start;
-                    gap: 4rem;
-                    color: white;
-
-                    td {
-                        &:first-child {
-                            width: 30px;
-                        }
-
-                        width: 8vw;
-                    }
-
-                    div {
-                        padding: 10px 20px;
-                        color: white;
-                    }
-
-                    .flagImage {
-                        width: 40px;
-                        height: 30px;
-                        border-radius: 4px;
-                        object-fit: cover;
-                    }
-
-                    // .nameWidth {
-                    //     width: 200px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 50px;
-                    //     }
-                    // }
-
-                    // .populationWidth {
-                    //     width: 100px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 90px;
-                    //     }
-                    // }
-
-                    // .areaWidth {
-                    //     width: 100px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 90px;
-                    //     }
-                    // }
-
-                    // .regionWidth {
-                    //     width: 50px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 90px;
-                    //     }
-                    // }
-
-                }
-            }
-
-            .loader {
-                position: absolute;
-                top: 50%;
-                right: 50%;
-            }
-        }
-
         .tableBottomContainer {
             display: flex;
             flex-direction: row;
@@ -250,10 +119,10 @@
                 text-align: start;
                 justify-content: start;
                 padding-top: 30px;
-                width: auto;
+                width: 35%;
 
                 @media (max-width: 840px) {
-                    padding-bottom: 30px;
+                    width: auto;
                 }
 
                 .selectFilterContainer {
@@ -330,7 +199,7 @@
 
                         label {
                             font-size: 0.875rem;
-                            color: white;
+                            color: #D2D5DA;
 
                             @media (max-width: 959px) {
                                 font-size: 0.75rem;
@@ -368,7 +237,7 @@
                             input[type="checkbox"] {
                                 width: 31px;
                                 height: 24px;
-                                background-color: white;
+                                background-color: #D2D5DA;
                                 margin: 0;
 
                                 &:checked {
@@ -382,6 +251,144 @@
 
                         }
                     }
+                }
+            }
+
+            .tableCountries {
+                width: 65%;
+                padding-left: 1rem;
+
+                @media (max-width: 840px) {
+                    width: 100%;
+                    padding-left: 0;
+                }
+
+                .tableContainerCountries {
+                    max-height: 670px;
+                    overflow: auto;
+                    width: auto;
+
+
+                    &::-webkit-scrollbar {
+                        width: 10px;
+                    }
+
+                    @media (max-width: 841px) {
+                        max-height: 300px;
+                    }
+
+                    @media (max-width: 461px) {
+                        max-height: 250px;
+                    }
+
+                    @media (max-width: 410px) {
+                        max-height: 200px;
+                    }
+
+                    table {
+                        width: 100%;
+
+                        @media (max-width: 600px) {
+                            max-width: 600px;
+                            overflow-x: auto;
+                        }
+                    }
+
+                    th {
+                        text-align: start;
+                    }
+
+                    .tableHeaders {
+                        display: flex;
+                        flex-direction: row;
+                        text-align: start;
+                        position: sticky;
+                        top: 0;
+                        background-color: #1c1d1e;
+                        gap: 4.3rem;
+                        margin-bottom: 1.5rem;
+
+                        th {
+                            font-size: 0.75rem;
+                        }
+
+                        tr {
+                            text-align: start;
+                            padding: 30px 22px;
+                        }
+
+                    }
+
+                    .headersBody {
+                        margin-bottom: 2rem;
+                        border-bottom: solid 1px #282b30;
+                        padding-bottom: 1rem;
+                        margin-top: 30px;
+
+                        td {
+                            color: gray;
+                            font-size: 0.75rem !important;
+                        }
+                    }
+
+                    .tableBody {
+                        display: flex;
+                        flex-direction: row;
+                        text-align: start;
+                        gap: 9%;
+                        color: #D2D5DA;
+                        justify-content: center;
+                        padding: 0.5rem 0rem;
+
+                        @media (max-width: 840px) {
+                            gap: 0;
+                        }
+
+                        td {
+                            &:first-child {
+                                width: 18vw;
+
+                                @media (max-width: 1200px) {
+                                    width: 3vw;
+                                }
+
+                                @media (max-width: 841px) {
+                                    width: 18vw;
+                                    padding-right: 1rem;
+                                }
+                            }
+
+                            font-size: 1rem;
+                            width: 80%;
+
+                            @media (max-width: 1180px) {
+                                width: 90%;
+                                font-size: 0.875rem;
+                            }
+
+                            @media (max-width: 1000px) {
+                                font-size: 0.75rem;
+                            }
+                        }
+
+                        div {
+                            padding: 10px 20px;
+                            color: #D2D5DA;
+                        }
+
+                        .flagImage {
+                            width: 40px;
+                            height: 30px;
+                            border-radius: 4px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .loader {
+                    position: absolute;
+                    top: 50%;
+                    right: 50%;
                 }
             }
         }

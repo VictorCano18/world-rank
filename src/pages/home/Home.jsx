@@ -148,16 +148,13 @@ const Home = () => {
                                 ?
                                 <section className='tableContainerCountries'>
                                     <table>
-                                        <thead>
-                                            <tr className='tableHeaders'>
-                                                <th scope="col" >Flag</th>
-                                                <th scope="col" className='nameWidth'>Name</th>
-                                                <th scope="col" className='populationWidth'>Population</th>
-                                                <th scope="col" className='areaWidth'>Area (km²)</th>
-                                                <th scope="col" className='regionWidth'>Region</th>
+                                            <tr className='tableBody headersBody'>
+                                                <td >Flag</td>
+                                                <td className='nameWidth'>Name</td>
+                                                <td className='populationWidth'>Population</td>
+                                                <td className='areaWidth'>Area (km²)</td>
+                                                <td className='regionWidth'>Region</td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
                                             {data.map((country) => {
                                                 return (
                                                     <Link to='/selected-country' state={{ country, data }}>
@@ -172,7 +169,6 @@ const Home = () => {
                                                 )
                                             })
                                             }
-                                        </tbody>
                                     </table>
                                 </section>
                                 :
