@@ -13,26 +13,35 @@ const Home = () => {
     const [selectOption, setSelectOption] = useState('population')
     const [checkOption1, setCheckOption1] = useState(false)
     const [checkOption2, setCheckOption2] = useState(false)
-    const [region, setRegion] = useState(['Americas', 'Europe', 'Antarctic', 'Africa', 'Asia'])
+    const [errorDataServer, setErrorDataServer] = useState(false)
+    const [notFound, setNotFound] = useState(false)
+    const [region, setRegion] = useState(['Americas', 'Europe', 'Antarctic', 'Africa', 'Asia', 'Oceania'])
     const [dataBack, setDataBack] = useState([])
     const [searchValue, setSearchValue] = useState('')
 
     const fetchData = async () => {
+        setErrorDataServer(false)
+        setNotFound(false)
+        setData([])
+        setTotalCountries(0)
         try {
-            setData([])
-            setTotalCountries(0)
             const url = `https://restcountries.com/v3.1/all?fields=name,population,region,flag,flags,independent,unMember,area,capital,languages,subregion,currencies,continents,borders,cioc`
             const response = await axios.get(url);
             response.data.sort((a, b) => b[selectOption] - a[selectOption])
             setData(response.data);
             setDataBack(response.data)
             setTotalCountries(response.data.length)
+            setErrorDataServer(false)
+            setNotFound(false)
         } catch (error) {
+            setErrorDataServer(true)
+            setNotFound(false)
             console.error("Error fetching data:", error);
         }
     };
 
     const onChangeSelectedFilterValue = () => {
+        setNotFound(false)
         let data = [...dataBack]
         let sortedData = [];
         if (selectOption === 'name.common' || selectOption === 'region') {
@@ -61,12 +70,12 @@ const Home = () => {
         }
         if (!checkOption1 && checkOption2) setData([...dataBack])
 
-        if (region.length !== 5)
+        if (region.length !== 6)
             if (region.length) sortedData = sortedData.filter(country => region.includes(country.region))
 
         if (searchValue.length)
             sortedData = sortedData.filter(country => country.name.common.toLowerCase().includes(searchValue.toLowerCase()) || country.region.toLowerCase().includes(searchValue.toLowerCase()))
-
+        if (!(!!sortedData.length)) setNotFound(true)
         return sortedData;
     }
 
@@ -133,6 +142,7 @@ const Home = () => {
                                     <button id="Africa" style={{ 'backgroundColor': '#282c31' }} onClick={e => onClickButtonFilter(e)}>Africa</button>
                                     <button id="Asia" style={{ 'backgroundColor': '#282c31' }} onClick={e => onClickButtonFilter(e)}>Asia</button>
                                     <button id="Europe" style={{ 'backgroundColor': '#282c31' }} onClick={e => onClickButtonFilter(e)}>Europe</button>
+                                    <button id="Oceania" style={{ 'backgroundColor': '#282c31' }} onClick={e => onClickButtonFilter(e)}>Oceania</button>
                                 </div>
                             </section>
                             <section className="statusFiltarContainer">
@@ -144,39 +154,50 @@ const Home = () => {
                             </section>
                         </section>
                         <section className="tableCountries">
-                            {(!!data.length)
-                                ?
-                                <section className='tableContainerCountries'>
-                                    <table>
-                                            <tr className='tableBody headersBody'>
-                                                <td >Flag</td>
-                                                <td className='nameWidth'>Name</td>
-                                                <td className='populationWidth'>Population</td>
-                                                <td className='areaWidth'>Area (km²)</td>
-                                                <td className='regionWidth'>Region</td>
-                                            </tr>
-                                            {data.map((country) => {
-                                                return (
-                                                    <Link to='/selected-country' state={{ country, data }}>
-                                                        <tr className='tableBody' key={country.flag}>
-                                                            <td><img src={country.flags.svg} alt={country.flags.alt} className='flagImage'></img></td>
-                                                            <td className='nameWidth'>{country.name.common}</td>
-                                                            <td className='populationWidth'>{country.population}</td>
-                                                            <td className='areaWidth'>{country.area}</td>
-                                                            <td className='regionWidth'>{country.region}</td>
-                                                        </tr>
-                                                    </Link>
-                                                )
-                                            })
-                                            }
-                                    </table>
-                                </section>
-                                :
-                                <ClipLoader
-                                    className='loader'
-                                    color="rgba(246, 246, 246, 1)"
-                                    loading
-                                />}
+                            {errorDataServer
+                                ? <div>
+                                    <div className='errorMessage'>There was an error with the server!</div>
+                                    {/* <a className='btnReloadPage' onClick={window.location.reload()}>reload page</a> */}
+                                </div>
+                                : (
+                                    data.length > 0
+                                        ? (
+                                            notFound
+                                                ? <div>Not found!</div>
+                                                : <section className='tableContainerCountries'>
+                                                    <table>
+                                                        <thead>
+                                                            <tr className='tableHeaders'>
+                                                                <th scope="col">Flag</th>
+                                                                <th scope="col" className='nameWidth'>Name</th>
+                                                                <th scope="col" className='populationWidth'>Population</th>
+                                                                <th scope="col" className='areaWidth'>Area (km²)</th>
+                                                                <th scope="col" className='regionWidth'>Region</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {data.map((country) => (
+                                                                <Link to='/selected-country' state={{ country, data }} key={country.flag}>
+                                                                    <tr className='tableBody'>
+                                                                        <td><img src={country.flags.svg} alt={country.flags.alt} className='flagImage' /></td>
+                                                                        <td className='nameWidth'>{country.name.common}</td>
+                                                                        <td className='populationWidth'>{country.population}</td>
+                                                                        <td className='areaWidth'>{country.area}</td>
+                                                                        <td className='regionWidth'>{country.region}</td>
+                                                                    </tr>
+                                                                </Link>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                        )
+                                        : (
+                                            !notFound
+                                                ? <div>Not found!</div>
+                                                : <ClipLoader className='loader' color="rgba(246, 246, 246, 1)" loading />
+                                        )
+                                )
+                            }
                         </section>
                     </div>
                 </div>

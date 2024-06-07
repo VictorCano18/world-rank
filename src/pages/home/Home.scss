@@ -30,6 +30,7 @@
         height: 700px;
         width: 88%;
         margin: 0 auto;
+        border: solid 1px #282B30;
 
         @media (max-width: 840px) {
             width: unset;
@@ -104,6 +105,157 @@
 
         }
 
+        .tableCountries {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.875rem;
+
+            .errorMessage {
+                margin-bottom: 1rem;
+            }
+
+            .btnReloadPage {
+                margin-top: 1rem;
+                background-color: rgb(90 134 219);
+                padding: 0.5rem;
+                color: white;
+                border-radius: 30px;
+                &:hover {
+                    background-color: rgb(114, 152, 227);
+                }
+            }
+
+            .tableContainerCountries {
+                th {
+                    text-align: start;
+                }
+
+                .tableHeaders {
+                    display: flex;
+                    flex-direction: row;
+                    text-align: start;
+                    position: sticky;
+                    top: 0;
+                    background-color: #1c1d1e;
+                    gap: 4.3rem;
+                    margin-bottom: 1.5rem;
+
+                    th {
+                        font-size: 0.75rem;
+                    }
+
+                    tr {
+                        text-align: start;
+                        padding: 30px 22px;
+                    }
+
+                    .nameWidth {
+                        width: 200px;
+
+                        @media (max-width: 840px) {
+                            width: 50px;
+                        }
+                    }
+
+                    .populationWidth {
+                        width: 90px;
+
+                        @media (max-width: 840px) {
+                            width: 90px;
+                        }
+                    }
+
+                    .areaWidth {
+                        width: 100px;
+
+                        @media (max-width: 840px) {
+                            width: 90px;
+                        }
+                    }
+
+                    .regionWidth {
+                        width: 50px;
+
+                        @media (max-width: 840px) {
+                            padding-left: 10px;
+                        }
+                    }
+
+                }
+
+                .tableBody {
+                    display: flex;
+                    flex-direction: row;
+                    text-align: start;
+                    gap: 4rem;
+                    color: #D2D5DA;
+
+                    td {
+                        &:first-child {
+                            width: 30px;
+                        }
+
+                        width: 8vw;
+                    }
+
+                    div {
+                        padding: 10px 20px;
+                        color: #D2D5DA;
+                    }
+
+                    .flagImage {
+                        width: 40px;
+                        height: 30px;
+                        border-radius: 4px;
+                        object-fit: cover;
+                    }
+
+                    // .nameWidth {
+                    //     width: 200px;
+
+                    //     @media (max-width: 840px) {
+                    //         width: 50px;
+                    //     }
+                    // }
+
+                    // .populationWidth {
+                    //     width: 100px;
+
+                    //     @media (max-width: 840px) {
+                    //         width: 90px;
+                    //     }
+                    // }
+
+                    // .areaWidth {
+                    //     width: 100px;
+
+                    //     @media (max-width: 840px) {
+                    //         width: 90px;
+                    //     }
+                    // }
+
+                    // .regionWidth {
+                    //     width: 50px;
+
+                    //     @media (max-width: 840px) {
+                    //         width: 90px;
+                    //     }
+                    // }
+
+                }
+            }
+
+            .loader {
+                position: absolute;
+                top: 50%;
+                right: 50%;
+            }
+        }
+
         .tableBottomContainer {
             display: flex;
             flex-direction: row;
@@ -164,17 +316,17 @@
                         margin-bottom: 0.5rem;
                     }
 
-                    #groupButtonFilter {
+                    .groupButtonButtonsContainer {
+
                         display: flex;
                         flex-wrap: wrap;
                         gap: 0.4rem;
 
-                    }
-
-                    .groupButtonButtonsContainer {
                         button {
                             background-color: #1c1d1e;
                             font-size: 0.875rem;
+                            outline: none;
+                            border: none;
 
                             @media (max-width: 959px) {
                                 font-size: 0.75rem;
@@ -239,9 +391,18 @@
                                 height: 24px;
                                 background-color: #D2D5DA;
                                 margin: 0;
+                                position: relative;
+                                content: "" !important;
 
                                 &:checked {
                                     accent-color: #4E80EE;
+
+                                    // &::after {
+                                    //     content: url(../../assets/basic-tick.png);
+                                    //     position: absolute;
+                                    //     left: 24%;
+                                    //     top: 17%;
+                                    // }
                                 }
                             }
 
