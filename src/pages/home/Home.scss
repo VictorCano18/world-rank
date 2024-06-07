@@ -105,156 +105,97 @@
 
         }
 
-        .tableCountries {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.875rem;
+        // .tableCountries {
+        //     // position: relative;
+        //     // width: 100%;
+        //     // display: flex;
+        //     // align-items: center;
+        //     // justify-content: center;
+        //     // cursor: pointer;
+        //     font-size: 0.875rem;
 
-            .errorMessage {
-                margin-bottom: 1rem;
-            }
+        //     .errorMessage {
+        //         margin-bottom: 1rem;
+        //     }
 
-            .btnReloadPage {
-                margin-top: 1rem;
-                background-color: rgb(90 134 219);
-                padding: 0.5rem;
-                color: white;
-                border-radius: 30px;
-                &:hover {
-                    background-color: rgb(114, 152, 227);
-                }
-            }
+        //     .btnReloadPage {
+        //         margin-top: 1rem;
+        //         background-color: rgb(90 134 219);
+        //         padding: 0.5rem;
+        //         color: white;
+        //         border-radius: 30px;
 
-            .tableContainerCountries {
-                th {
-                    text-align: start;
-                }
+        //         &:hover {
+        //             background-color: rgb(114, 152, 227);
+        //         }
+        //     }
 
-                .tableHeaders {
-                    display: flex;
-                    flex-direction: row;
-                    text-align: start;
-                    position: sticky;
-                    top: 0;
-                    background-color: #1c1d1e;
-                    gap: 4.3rem;
-                    margin-bottom: 1.5rem;
+        //     .tableContainerCountries {
+        //         th {
+        //             text-align: start;
+        //         }
 
-                    th {
-                        font-size: 0.75rem;
-                    }
+        //         .tableHeaders {
+        //             display: flex;
+        //             flex-direction: row;
+        //             text-align: start;
+        //             position: sticky;
+        //             top: 0;
+        //             background-color: #1c1d1e;
+        //             gap: 4.3rem;
+        //             margin-bottom: 1.5rem;
 
-                    tr {
-                        text-align: start;
-                        padding: 30px 22px;
-                    }
+        //             th {
+        //                 font-size: 0.75rem;
+        //             }
 
-                    .nameWidth {
-                        width: 200px;
+        //             tr {
+        //                 text-align: start;
+        //                 padding: 30px 22px;
+        //             }
+        //         }
 
-                        @media (max-width: 840px) {
-                            width: 50px;
-                        }
-                    }
+        //         .tableBody {
+        //             display: flex;
+        //             flex-direction: row;
+        //             text-align: start;
+        //             gap: 4rem;
+        //             color: #D2D5DA;
 
-                    .populationWidth {
-                        width: 90px;
+        //             .region {
+        //                 @media (max-width: 840px) {
+        //                     display: none;
+        //                 }
+        //             }
 
-                        @media (max-width: 840px) {
-                            width: 90px;
-                        }
-                    }
+        //             td {
+        //                 &:first-child {
+        //                     width: 30px;
+        //                 }
 
-                    .areaWidth {
-                        width: 100px;
+        //                 width: 8vw;
+        //             }
 
-                        @media (max-width: 840px) {
-                            width: 90px;
-                        }
-                    }
+        //             div {
+        //                 padding: 10px 20px;
+        //                 color: #D2D5DA;
+        //             }
 
-                    .regionWidth {
-                        width: 50px;
+        //             .flagImage {
+        //                 width: 40px;
+        //                 height: 30px;
+        //                 border-radius: 4px;
+        //                 object-fit: cover;
+        //             }
+        //         }
+        //     }
 
-                        @media (max-width: 840px) {
-                            padding-left: 10px;
-                        }
-                    }
-
-                }
-
-                .tableBody {
-                    display: flex;
-                    flex-direction: row;
-                    text-align: start;
-                    gap: 4rem;
-                    color: #D2D5DA;
-
-                    td {
-                        &:first-child {
-                            width: 30px;
-                        }
-
-                        width: 8vw;
-                    }
-
-                    div {
-                        padding: 10px 20px;
-                        color: #D2D5DA;
-                    }
-
-                    .flagImage {
-                        width: 40px;
-                        height: 30px;
-                        border-radius: 4px;
-                        object-fit: cover;
-                    }
-
-                    // .nameWidth {
-                    //     width: 200px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 50px;
-                    //     }
-                    // }
-
-                    // .populationWidth {
-                    //     width: 100px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 90px;
-                    //     }
-                    // }
-
-                    // .areaWidth {
-                    //     width: 100px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 90px;
-                    //     }
-                    // }
-
-                    // .regionWidth {
-                    //     width: 50px;
-
-                    //     @media (max-width: 840px) {
-                    //         width: 90px;
-                    //     }
-                    // }
-
-                }
-            }
-
-            .loader {
-                position: absolute;
-                top: 50%;
-                right: 50%;
-            }
-        }
+        //     .loader {
+        //         position: absolute;
+        //         top: 50%;
+        //         right: 50%;
+        //     }
+        // }
 
         .tableBottomContainer {
             display: flex;
@@ -418,6 +359,13 @@
             .tableCountries {
                 width: 65%;
                 padding-left: 1rem;
+                position: relative;
+
+                .notFound {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                }
 
                 @media (max-width: 840px) {
                     width: 100%;
@@ -438,7 +386,7 @@
                         max-height: 300px;
                     }
 
-                    @media (max-width: 461px) {
+                    @media (max-width: 538px) {
                         max-height: 250px;
                     }
 
@@ -464,7 +412,7 @@
                         flex-direction: row;
                         text-align: start;
                         position: sticky;
-                        top: 0;
+                        top: -2px;
                         background-color: #1c1d1e;
                         gap: 4.3rem;
                         margin-bottom: 1.5rem;
@@ -484,7 +432,8 @@
                         margin-bottom: 2rem;
                         border-bottom: solid 1px #282b30;
                         padding-bottom: 1rem;
-                        margin-top: 30px;
+                        margin-top: 0px;
+                        cursor: auto !important;
 
                         td {
                             color: gray;
@@ -500,6 +449,13 @@
                         color: #D2D5DA;
                         justify-content: center;
                         padding: 0.5rem 0rem;
+                        cursor: pointer;
+
+                        .region {
+                            @media (max-width: 840px) {
+                                display: none;
+                            }
+                        }
 
                         @media (max-width: 840px) {
                             gap: 0;
@@ -507,14 +463,18 @@
 
                         td {
                             &:first-child {
-                                width: 18vw;
+                                width: 4vw;
+
+                                @media (max-width: 2175px) {
+                                    width: 18vw;
+                                }
 
                                 @media (max-width: 1200px) {
                                     width: 3vw;
                                 }
 
                                 @media (max-width: 841px) {
-                                    width: 18vw;
+                                    width: 40vw;
                                     padding-right: 1rem;
                                 }
                             }
@@ -549,7 +509,6 @@
                 .loader {
                     position: absolute;
                     top: 50%;
-                    right: 50%;
                 }
             }
         }
