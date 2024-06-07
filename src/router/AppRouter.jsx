@@ -2,7 +2,7 @@ import React from "react";
 
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
-import Country from "../pages/Country/Country.jsx";
+import Country from "../pages/country/Country.jsx";
 
 const AppRouter = () => {
 

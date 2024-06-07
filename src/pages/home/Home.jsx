@@ -34,13 +34,12 @@ const Home = () => {
             setDataBack(response.data)
             setTotalCountries(response.data.length)
             setErrorDataServer(false)
-            setNotFound(false)
         } catch (error) {
             setErrorDataServer(true)
-            setNotFound(false)
             console.error("Error fetching data:", error);
         } finally {
             setLoading(false)
+            setNotFound(false)
         }
     };
 
